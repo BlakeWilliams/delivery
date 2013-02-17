@@ -44,6 +44,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    daemons (1.1.9)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -54,6 +55,7 @@ GEM
       railties (>= 3.0.0)
     faraday (0.8.4)
       multipart-post (~> 1.1)
+    ffi (1.4.0)
     highline (1.6.15)
     hike (1.2.1)
     httpauth (0.2.0)
@@ -63,10 +65,18 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.7)
+    listen (0.7.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    maildir (2.1.0)
+    mailman (0.6.0)
+      activesupport (>= 2.3.4)
+      i18n (>= 0.4.1)
+      listen (>= 0.4.1)
+      mail (>= 2.0.3)
+      maildir (>= 0.5.0)
     mime-types (1.21)
     minitest (4.6.1)
     minitest-rails (0.5.1)
@@ -111,6 +121,8 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     rake (10.0.3)
+    rb-inotify (0.9.0)
+      ffi (>= 0.5.0)
     rdoc (3.12.1)
       json (~> 1.4)
     sass (3.2.5)
@@ -144,11 +156,14 @@ PLATFORMS
 DEPENDENCIES
   capistrano
   coffee-rails (~> 3.2.1)
+  daemons
   factory_girl_rails
   jquery-rails
+  mailman
   minitest-rails
   pg
   rails (= 3.2.12)
+  rb-inotify
   sass-rails (~> 3.2.3)
   sorcery
   sqlite3

@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require 'bundler/setup'
+require 'daemons'
+
+Daemons.run('script/mailman_server')
