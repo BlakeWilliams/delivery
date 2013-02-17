@@ -16,7 +16,6 @@ end
 gem 'sorcery'
 
 gem 'mailman'
-gem 'rb-inotify', require: false
 gem 'daemons', require: false
 
 # Gems used only for assets and not required
