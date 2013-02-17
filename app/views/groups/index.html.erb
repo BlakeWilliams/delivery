@@ -1,0 +1,9 @@
+<%= link_to 'New Group', new_group_path %>
+<table class="table">
+  <tr>
+    <% current_user.groups.each do |group| %>
+      <td><%= link_to group.name, group %></td>
+      <td><%= group.address%></td>
+    <% end %>
+  </tr>
+</table>

@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, presence: true
   validates :password, presence: true, :on => :create
   validates :password, confirmation: true, :on => :update, if: ->{password.present?}
+
+  has_many :groups
 end

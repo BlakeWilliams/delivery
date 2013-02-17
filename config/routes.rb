@@ -1,4 +1,7 @@
 Delivery::Application.routes.draw do
+  resources :groups
+
+
   get  'signup', to: "users#new", as: 'signup'
   post 'signup', to: "users#create"
 
