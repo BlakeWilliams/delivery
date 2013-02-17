@@ -4,5 +4,6 @@ class Group < ActiveRecord::Base
   validates :address, presence: true, uniqueness: true
   validates :name, presence: true
 
+  has_many :emails
   belongs_to :user
 end

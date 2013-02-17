@@ -6,7 +6,19 @@ class GroupsControllerTest < ActionController::TestCase
     login_user
   end
 
-  test "Should get new" do
+  test "should get index" do
+    get :index
+    assert_response :success
+  end
+
+  test "should get show" do
+    group = create(:group)
+    get :show, id: group.id
+
+    assert_response :success
+  end
+
+  test "should get new" do
     get :new
     assert_response :success
   end

@@ -1,6 +1,7 @@
 Delivery::Application.routes.draw do
-  resources :groups
-
+  resources :groups do
+    resources :emails, only: [:create, :destroy]
+  end
 
   get  'signup', to: "users#new", as: 'signup'
   post 'signup', to: "users#create"

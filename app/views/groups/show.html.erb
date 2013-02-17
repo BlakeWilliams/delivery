@@ -1,0 +1,35 @@
+<h1><%= @group.name %></h1>
+
+<%= form_for [@group, @email] do |f| %>
+  <% if @email.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @email.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% if @group.emails.empty? %>
+  <p>There are no emails for this group</p>
+<% else %>
+  <table>
+    <% @group.emails.each do |email| %>
+      <tr>
+        <td><%= email.address %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

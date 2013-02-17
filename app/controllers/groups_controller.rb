@@ -7,6 +7,11 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
+  def show
+    @group = Group.find(params[:id])
+    @email = Email.new
+  end
+
   def create
     @group = Group.new(params[:group])
     @group.user = current_user
