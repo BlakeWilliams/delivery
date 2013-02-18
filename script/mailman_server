@@ -5,6 +5,12 @@ require 'mailman'
 Mailman.config.logger = Logger.new('log/mailman.log')
 Mailman.config.maildir = '/home/blake/mail'
 
+Mail.defaults do
+  delivery_method :smtp, {
+    enable_starttls_auto: false
+  }
+end
+
 Mailman::Application.run do
   to '%group%@blakemwilliams.com' do |group_address|
     begin
