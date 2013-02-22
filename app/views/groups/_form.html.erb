@@ -17,7 +17,10 @@
 
   <div class="field">
     <%= f.label :address, "The address of your group" %>
-    <%= f.text_field :address %>
+    <div class="input-append">
+      <%= f.text_field :address %>
+      <span class="add-on">@<%= APP_CONFIG[:domain] %></span>
+    </div>
   </div>
 
   <div class="actions">
