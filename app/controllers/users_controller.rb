@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   skip_before_filter :require_login
 
   def new
+    redirect_to(groups_path) and return if logged_in?
     @user = User.new
   end
 

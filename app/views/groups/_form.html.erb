@@ -1,0 +1,27 @@
+<%= form_for @group do |f| %>
+  <% if @group.errors.any? %>
+    <div class="error_messages">
+      <h5>Form is invalid</h5>
+      <ul>
+        <% for message in @group.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "The name of your email group" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, "The address of your group" %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: 'btn' %>
+  </div>
+<% end %>
+

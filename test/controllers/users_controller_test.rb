@@ -6,6 +6,14 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should redirect to groups if logged in" do
+    @user = create(:user)
+    login_user
+
+    get :new
+    assert_redirected_to groups_path
+  end
+
   test "should create user" do
     attributes = attributes_for(:user)
 

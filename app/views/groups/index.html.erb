@@ -1,9 +1,24 @@
-<%= link_to 'New Group', new_group_path %>
-<table class="table">
-  <tr>
-    <% current_user.groups.each do |group| %>
+<%= link_to 'New Group', new_group_path, class: 'btn new-group' %>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Group Name</th>
+      <th>Email Address</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <% current_user.groups.each do |group| %>
+    <tr>
       <td><%= link_to group.name, group %></td>
       <td><%= group.address%></td>
-    <% end %>
-  </tr>
+      <td class="actions" width="1px">
+        <%= link_to 'Edit', edit_group_path(group) %>
+      </td>
+      <td class="actions" width="1px">
+        <%= link_to 'Delete', group_path(group), method: 'delete',
+          confirm: 'Are you sure you want to delete this group?' %>
+      </td>
+    </tr>
+  <% end %>
 </table>

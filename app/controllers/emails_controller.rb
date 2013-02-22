@@ -8,7 +8,7 @@ class EmailsController < ApplicationController
     if @email.save
       redirect_to @group
     else
-      render 'group/new'
+      render 'groups/show'
     end
   end
 

@@ -1,0 +1,13 @@
+//= require bootstrap
+//= require_self
+//= require_tree .
+
+.navbar-inner {
+  .container {
+    width: 940px;
+  }
+}
+
+.form-inline {
+  margin-bottom: 0;
+}
