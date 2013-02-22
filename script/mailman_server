@@ -3,23 +3,23 @@ require 'bundler/setup'
 require 'mailman'
 
 Mailman.config.logger = Logger.new('log/mailman.log')
-Mailman.config.maildir = '/home/blake/mail'
+Mailman.config.maildir = APP_CONFIG[:maildir]
 
 Mail.defaults do
   delivery_method :smtp, {
-    enable_starttls_auto: false
+    enable_starttls_auto: APP_CONFIG[:starttls]
   }
 end
 
 Mailman::Application.run do
-  to '%group%@blakemwilliams.com' do |group_address|
+  to "%group%@#{APP_CONFIG[:domain]}" do |group_address|
     begin
       group = Group.find_by_address(group_address)
 
       mail = Mail.new(message)
       mail.to = nil
       mail.bcc = group.emails.pluck('address')
-      mail.reply_to = group_address + '@blakemwilliams.com'
+      mail.reply_to = group_address + "@#{APP_CONFIG[:domain]}"
 
       mail.deliver!
     rescue Exception => e
