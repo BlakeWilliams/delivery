@@ -2,7 +2,11 @@
 require 'bundler/setup'
 require 'mailman'
 
-Mailman.config.logger = Logger.new('log/mailman.log')
+require File.expand_path('../../config/application', __FILE__)
+Delivery::Application.initialize!
+
+log_path = File.expand_path('../../log/mailman.log', __FILE__)
+Mailman.config.logger = Logger.new(log_path)
 Mailman.config.maildir = APP_CONFIG[:maildir]
 
 Mail.defaults do
