@@ -21,4 +21,14 @@ class SessionsControllerTest < ActionController::TestCase
     assert_redirected_to root_url
     assert @controller.logged_in?
   end
+
+  test "should log out user" do
+    @user = create(:user)
+    login_user
+
+    get :destroy
+    assert_redirected_to root_url
+    refute @controller.logged_in?
+
+  end
 end
