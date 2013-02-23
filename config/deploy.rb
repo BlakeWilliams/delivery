@@ -31,6 +31,7 @@ namespace :deploy do
     run "rm #{release_path}/config/config.yml"
     run "ln -nfs #{shared_path}/config/config.yml #{release_path}/config/config.yml"
   end
+
   after "deploy:finalize_update", "deploy:symlink_config"
 end
 
@@ -50,4 +51,6 @@ namespace :mailman do
     mailman.stop
     mailman.start
   end
+
+  before "deploy:cleanup", "mailman:restart"
 end
